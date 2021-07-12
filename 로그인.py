@@ -7,8 +7,8 @@ crawl_html = 'https://ecampus.smu.ac.kr/local/ubion/user/'
 session_data = requests.session()
 
 params=dict()
-params['username'] = '202010904'
-params['password'] = 'lj74973186'
+params['username'] = '아이디입력'
+params['password'] = '비밀번호입력'
 
 login = session_data.post(login_html, data=params)
 login.raise_for_status()
