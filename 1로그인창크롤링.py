@@ -13,9 +13,6 @@ params['password'] = '여기에이캠비밀번호입력'
 login = session_data.post(login_html, data=params)
 login.raise_for_status()
 
-# print(login.headers)
-# print(session_data.cookies.get_dict())
-
 logins = session_data.get(crawl_html)
 soup = BeautifulSoup(logins.content, 'html.parser')
 # print(soup)

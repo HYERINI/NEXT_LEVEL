@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup as bs #beautifulsoup대신 bs 사용하겠다는 �
 
 #사용자의 아이디와 비번을 data에 추출
 data = {
-    'username' : '여기에 이캠아이디입력',
-    'password' : '여기에 이캠비번입력'
+    'username' : '아이디입력',
+    'password' : '비번입력'
 }
 
 with requests.Session() as s:
@@ -18,4 +18,5 @@ top_list = soup.select("#region-main > div > div.progress_courses > div.course_l
 print("❤당신이 듣고 있는 강의들입니다❤\n")
 for top in top_list:
 	print(top.text)
+
 
