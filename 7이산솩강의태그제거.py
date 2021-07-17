@@ -4,8 +4,8 @@ import openpyxl
 
 #사용자의 아이디와 비번을 data에 추출
 data = {
-    'username' : '아이디입력',
-    'password' : '비번입력'
+    'username' : '202010904',
+    'password' : 'lj74973186@@'
 }
 
 with requests.Session() as s:
@@ -13,10 +13,12 @@ with requests.Session() as s:
     result = s.get('https://ecampus.smu.ac.kr/report/ubcompletion/user_progress.php?id=60021', data=data)
     source2 = result.text
     soup = bs(source2,'html.parser')
-    # print(soup)
-    # items = soup.find("table", {"class", "table table-bordered user_progress"})
-data = soup.select('#ubcompletion-progress-wrapper > div > table > tbody > tr > td.text-center')
-for i in data :
-    print(i)
+    items = soup.find_all("table", {"class", "table table-bordered user_progress"})
+# print(items)
+# data = soup.select('#ubcompletion-progress-wrapper > div > table > tbody > tr > td.text-center') 
+for a in items : 
+        arrange = a.get_text()
+
+print(arrange)
 
 
