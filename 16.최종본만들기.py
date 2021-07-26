@@ -4,7 +4,8 @@ from bs4 import BeautifulSoup
 
 login_url = 'https://ecampus.smu.ac.kr/login/index.php'
 class2021_url = 'https://ecampus.smu.ac.kr/local/ubion/user/?year=2021&semester=10'
-url_lst = []
+url_lst_video = []  #강의 진도 현황 있는 페이지
+url_lst_assign = []  #과제 제출 현황 있는 페이지
 
 user_info = {
     'username':'202010869',
@@ -29,15 +30,16 @@ with requests.Session() as s:
         #print(lst)
         count = len(lst)
         for i in range(count):
-            url_lst.append('https://ecampus.smu.ac.kr/report/ubcompletion/user_progress.php?id='+str(lst[i]))
+            url_lst_video.append('https://ecampus.smu.ac.kr/report/ubcompletion/user_progress.php?id='+str(lst[i]))
+            url_lst_assign.append('https://ecampus.smu.ac.kr/report/ubcompletion/user_progress.php?id='+str(lst[i]))
+
+            
     if (request2.status_code == 200):
         for i in range(count):
-            request3 = s.post(url_lst[i])
+            request3 = s.post(url_lst_video[i])
             name_lst = []
             bs  = BeautifulSoup(request3.text, 'html.parser')
             lecture_name = bs.select('#ubcompletion-progress-wrapper > div > table.table.table-bordered.user_progress > tbody > tr > td.text-left')
             for name in lecture_name:
                 name_lst.append(name.text.strip())
             total_name.append(name_lst)
-for i in range(count):
-    print(total_name[i])
