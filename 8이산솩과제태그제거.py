@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup as bs #beautifulsoup대신 bs 사용하겠다는 뜻
-import openpyxl
 
 #사용자의 아이디와 비번을 data에 추출
 data = {
