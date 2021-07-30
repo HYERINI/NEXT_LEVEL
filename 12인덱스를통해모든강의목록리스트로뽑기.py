@@ -30,6 +30,7 @@ with requests.Session() as s:
         count = len(lst)
         for i in range(count):
             url_lst.append('https://ecampus.smu.ac.kr/report/ubcompletion/user_progress.php?id='+str(lst[i]))
+    
     if (request2.status_code == 200):
         for i in range(count):
             request3 = s.post(url_lst[i])
