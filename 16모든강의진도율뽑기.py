@@ -1,4 +1,3 @@
-from bs4.element import NavigableString
 import requests
 from bs4 import BeautifulSoup
 
@@ -10,7 +9,7 @@ user_info = {
     'username':'202010904',
     'password':'lj74973186@@'
 }
-total_name = []
+
 with requests.Session() as s:
     request = s.post(login_url, data = user_info)
     request2 = s.post(class2021_url, data = user_info)
@@ -26,7 +25,7 @@ with requests.Session() as s:
         for i in class_list:
             index = i.find('id')
             lst.append(int(i[index+3:index+8]))
-        # print(lst)         //강의의 코드번호 추출
+        print(lst)         #강의의 코드번호 추출
         count = len(lst)
         for i in range(count):
             url_lst.append('https://ecampus.smu.ac.kr/report/ubcompletion/user_progress.php?id='+str(lst[i]))
