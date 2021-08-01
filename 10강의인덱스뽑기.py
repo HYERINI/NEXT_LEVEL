@@ -6,8 +6,8 @@ login_url = 'https://ecampus.smu.ac.kr/login/index.php'
 class2021_url = 'https://ecampus.smu.ac.kr/local/ubion/user/?year=2021&semester=10'
 
 user_info = {
-    'username':'202010869',
-    'password':'gusqls96%%!!'
+    'username':'아이디',
+    'password':'비번'
 }
 
 with requests.Session() as s:

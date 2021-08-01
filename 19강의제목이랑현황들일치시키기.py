@@ -71,6 +71,8 @@ with requests.Session() as s:
             size = len(a_li)
 
             print('-----------------------------------------------------------------------------------------\n')
+            print(class_name_lst[i] + '\n')
+            i += 1
             for i in range(0, size - 1, 1): 
                 print('강의 제목 : ' + name_lst[i] + '-> 강의 진도율 : ' + a_li[i])
             
@@ -101,15 +103,11 @@ with requests.Session() as s:
                 assignment_close_lst.append(close.text.strip())
 
             size = len(assignment_name_lst)
-
-            print("-----------------------------------------------------------------------------------------\n")
+            print('-----------------------------------------------------------------------------------------\n')
+            print(class_name_lst[i] + '\n')
+            i += 1
             for i in range(0, size):
                 print('과제 제목 : ' + assignment_name_lst[i], '\n과제 현황 : ' + assignment_rate_lst[i])
                 print('마감 기한 : ' + assignment_close_lst[i] + '\n')
-
-
         
-
-
-            
 

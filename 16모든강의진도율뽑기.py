@@ -6,8 +6,8 @@ class2021_url = 'https://ecampus.smu.ac.kr/local/ubion/user/?year=2021&semester=
 url_lst = []
 
 user_info = {
-    'username':'202010904',
-    'password':'lj74973186@@'
+    'username':'아이디',
+    'password':'비번'
 }
 
 with requests.Session() as s:

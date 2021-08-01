@@ -7,8 +7,8 @@ class1_url = 'https://ecampus.smu.ac.kr/report/ubcompletion/user_progress.php?id
 lecutre_main = 'https://ecampus.smu.ac.kr/course/view.php?id=60021'
 
 user_info = {
-    'username':'202010869',
-    'password':'gusqls96%%!!'
+    'username':'아이디',
+    'password':'비번'
 }
 
 with requests.Session() as s:

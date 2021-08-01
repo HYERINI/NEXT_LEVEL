@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup as bs #beautifulsoup대신 bs 사용하겠다는 �
 
 #사용자의 아이디와 비번을 data에 추출
 data = {
-    'username' : '202010904',
-    'password' : 'lj74973186@@'
+    'username' : '아이디',
+    'password' : '비번'
 }
 login_url = 'https://ecampus.smu.ac.kr/login/index.php'
 

@@ -6,8 +6,8 @@ class2021_url = 'https://ecampus.smu.ac.kr/local/ubion/user/?year=2021&semester=
 class1_url = 'https://ecampus.smu.ac.kr/report/ubcompletion/user_progress.php?id=60021'
 
 user_info = {
-    'username':'202010869',
-    'password':'gusqls96%%!!'
+    'username':'아이디',
+    'password':'비번'
 }
 
 with requests.Session() as s:
