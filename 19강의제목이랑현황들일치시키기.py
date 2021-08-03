@@ -7,8 +7,8 @@ url_lst = []
 url_lst_assign = []
 
 user_info = {
-    'username':'아이디',
-    'password':'비번'
+    'username':'202010904',
+    'password':'lj74973186@@'
 }
 
 with requests.Session() as s:
@@ -19,7 +19,7 @@ with requests.Session() as s:
     soup = BeautifulSoup(source,'html.parser')
     items = soup.find_all("a", {"class", "coursefullname"})
 
-    #강의 제목 끄어오기
+    #강의 제목 끌어오기
     class_name_lst = []
     for name in items:
         arrange = name.get_text()
