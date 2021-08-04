@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 client = discord.Client()
 
-token = 'ODY5NjM5MjI3NDU1OTk1OTk0.YQBIpA.E3WQch953zymheeXCrCtUkhEfSM'
+token = '해당봇토큰'
 
 # 봇 로그인
 @client.event
