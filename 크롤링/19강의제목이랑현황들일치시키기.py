@@ -8,7 +8,7 @@ url_lst_assign = []
 
 user_info = {
     'username':'202010904',
-    'password':'lj74973186@@'
+    'password':'lj74973186@@@'
 }
 
 with requests.Session() as s:
@@ -76,7 +76,8 @@ with requests.Session() as s:
             for i in range(0, size - 1, 1): 
                 print('강의 제목 : ' + name_lst[i] + '-> 강의 진도율 : ' + a_li[i])
             
-            print('\n')            
+            print('\n')
+            print(rate_list)            
 
     #과제제출현황크롤링하기
     print("--------------------------------과제 제출 현황-------------------------------------------\n")

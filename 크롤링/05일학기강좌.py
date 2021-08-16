@@ -7,7 +7,7 @@ data = {
     'password' : '비번'
 }
 
-with requests.Session() as s:
+with requests.Session() as s: 
     request = s.post('https://ecampus.smu.ac.kr/login/index.php', data=data)
     result = s.post('https://ecampus.smu.ac.kr/local/ubion/user/?year=2021&semester=10', data=data)
     source2 = result.text

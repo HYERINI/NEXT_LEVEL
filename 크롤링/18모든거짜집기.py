@@ -7,8 +7,8 @@ url_lst = []
 url_lst_assign = []
 
 user_info = {
-    'username':'아이디',
-    'password':'비번'
+    'username':'202010904',
+    'password':'lj74973186@@@'
 }
 
 with requests.Session() as s:

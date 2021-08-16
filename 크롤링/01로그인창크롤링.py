@@ -7,8 +7,8 @@ crawl_html = 'https://ecampus.smu.ac.kr/login/index.php'  #크롤링할 주소
 session_data = requests.session()
 
 params=dict()
-params['username'] = '아이디'
-params['password'] = '비밀번호'
+params['username'] = '202010904'
+params['password'] = 'lj74973186@@'
 
 login = session_data.post(login_html, data=params)
 login.raise_for_status()
