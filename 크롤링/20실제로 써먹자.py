@@ -29,58 +29,54 @@ with requests.Session() as s:
     if (request.status_code == 200):
         bs = BeautifulSoup(request3.text, 'html.parser')
 
-        lectures = bs.find_all("div", {"class", "course-title"})
-
+        lectures = bs.find_all("a", {"class", "course_link"})
         class_list = []
         for lecture in lectures:
-            class_list.append(lecture.text)
+            class_list.append(str(lecture))
 
         lst = []
         for i in class_list:
             index = i.find('id')
             lst.append(int(i[index+3:index+8]))
-        print(lst)
-        # count = len(lst)
-        # for i in range(count):
-        #     url_lst_assign.append('https://ecampus.smu.ac.kr/mod/assign/index.php?id='+str(lst[i]))
-        #     url_lst.append('https://ecampus.smu.ac.kr/report/ubcompletion/user_progress.php?id='+str(lst[i]))
 
-        # print(url_lst)
+        count = len(lst)
+        for i in range(count):
+            url_lst_assign.append('https://ecampus.smu.ac.kr/mod/assign/index.php?id='+str(lst[i]))
+            url_lst.append('https://ecampus.smu.ac.kr/report/ubcompletion/user_progress.php?id='+str(lst[i]))
 
-    # print("--------------------------------강의 진도 현황-------------------------------------------\n")
+        print("--------------------------------강의 진도 현황-------------------------------------------\n")
 
-    # #강의진도현황크롤링하기
-    # if (request3.status_code == 200):
-    #     for i in range(count):
-    #         request3 = s.post(url_lst[i])
-    #         name_lst = []
-    #         rate_list = []
-    #         a_li = []
-    #         bs  = BeautifulSoup(request3.text, 'html.parser')
-    #         lecture_name = bs.find_all("td", {"class", "text-left"})
-    #         rates = bs.find_all("td", {"class", "text-center"})
+        #강의진도현황크롤링하기
+        if (request3.status_code == 200):
+            for i in range(count):
+                request3 = s.post(url_lst[i])
+                name_lst = []
+                rate_list = []
+                a_li = []
+                bs  = BeautifulSoup(request3.text, 'html.parser')
+                lecture_name = bs.find_all("td", {"class", "text-left"})
+                rates = bs.find_all("td", {"class", "text-center"})
 
-    #         for name in lecture_name:
-    #             name_lst.append(name.text.strip())
-    #         name_lst = name_lst[3:]
+                for name in lecture_name:
+                    name_lst.append(name.text.strip())
+                name_lst = name_lst[3:]
 
-    #         for rate in rates:
-    #             rate_list.append(str(rate.text))
+                for rate in rates:
+                    rate_list.append(str(rate.text))
 
-    #         for word in rate_list:
-    #              if '%' in word:
-    #                  a_li.append(word)
-            
-    #         size = len(a_li)
+                for word in rate_list:
+                    if '%' in word:
+                        a_li.append(word)
 
-    #         print('-----------------------------------------------------------------------------------------\n')
-    #         print(class_name_lst[i] + '\n')
-    #         i += 1
-    #         for i in range(0, size - 1, 1): 
-    #             print('강의 제목 : ' + name_lst[i] + '-> 강의 진도율 : ' + a_li[i])
-            
-    #         print('\n')
-    #         print(rate_list)            
+                size = len(a_li)
+
+                print('-----------------------------------------------------------------------------------------\n')
+                print(class_name_lst[i] + '\n')
+                i += 1
+                for i in range(0, size - 1, 1): 
+                    print('강의 제목 : ' + name_lst[i] + '-> 강의 진도율 : ' + a_li[i])
+                
+                print('\n')      
 
     # #과제제출현황크롤링하기
     # print("--------------------------------과제 제출 현황-------------------------------------------\n")
