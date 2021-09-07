@@ -48,6 +48,7 @@ with requests.Session() as s:
 
         #강의진도현황크롤링하기
         if (request3.status_code == 200):
+            value_lst = []
             for i in range(count):
                 request3 = s.post(url_lst[i])
                 name_lst = []
@@ -67,16 +68,35 @@ with requests.Session() as s:
                 for word in rate_list:
                     if '%' in word:
                         a_li.append(word)
+                    if '-' in word:
+                        a_li.append(word)
+                
 
                 size = len(a_li)
 
-                print('-----------------------------------------------------------------------------------------\n')
-                print(class_name_lst[i] + '\n')
                 i += 1
-                for i in range(0, size - 1, 1): 
-                    print('강의 제목 : ' + name_lst[i] + '-> 강의 진도율 : ' + a_li[i])
-                
-                print('\n')      
+                absent_lst = []
+                value = ''
+                for i in range(0, size - 1, 1):
+                    if '%' in a_li:
+                        if float(a_li[i][:-1]) < 100:
+                            string = name_lst[i] + '-> 진도율 : ' + a_li[i]
+                            absent_lst.append(string)
+                    if '-' in a_li:
+                        string = name_lst[i] + ' -> 진도율 : 0% '
+                        absent_lst.append(string)
+
+                if len(absent_lst) == 0:
+                    value_lst.append("모든 강의를 100% 출석하였습니다. 아주 훌륭해요!!")
+                else:
+                    for i in absent_lst:
+                        value += (i + '\n')
+                    value_lst.append(value)
+
+                print(value_lst)
+                print('-----------------------------------------------------------------------------------------\n')
+ 
+   
 
     # #과제제출현황크롤링하기
     # print("--------------------------------과제 제출 현황-------------------------------------------\n")
